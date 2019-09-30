@@ -4,9 +4,10 @@
     <HelpDesk></HelpDesk>
     <Header></Header>
     <HeaderMenu></HeaderMenu>
-    <div class="body-wrap">
+    <router-view/>
+    <!-- <div class="body-wrap">
       <SideMenu></SideMenu>
-    </div>
+    </div> -->
 </div>
 </template>
 
@@ -29,11 +30,11 @@ export default {
 
 <style>
   a {
-    color: inherit !important;
-    text-decoration: none !important;
+    color: inherit;
+    text-decoration: none;
 }
 a {
-    background-color: transparent !important;
+    background-color: transparent;
 }
 .body-wrap {
     position: relative;

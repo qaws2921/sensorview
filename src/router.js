@@ -2,17 +2,23 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import MainBody from './components/MainBody'
+import AdminRoutes from './templates/admin/routes/index'
 
 Vue.use(Router)
 
 export default new Router({
+  linkActiveClass: 'active',
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: MainBody
+      redirect: '/admin',
+      name: 'Home',
+      component: MainBody,
+      children: [
+        ...AdminRoutes
+      ]
     },
     {
       path: '/about',

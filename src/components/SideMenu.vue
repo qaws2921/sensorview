@@ -6,14 +6,14 @@
 
         <ul class="nav flex-column">
             <li class="nav-item bor-bm">
-                <a class="nav-link ba-color-999 auth menuMainA" href="#">
-                    권한 관리  
+                <a class="nav-link ba-color-999 auth  menuMainA" href="javascript:;">
+                    권한 관리
                 <i class="down-icon"><font-awesome-icon  icon="angle-down" /></i>
                 </a>
                 <ul class="file-tree">
 
                     <li>
-                        <a class="sysAuth" href="sysAuth">권한그룹관리</a>
+                        <a class="sysAuth" href="javascript:;"><router-link :to="{path:'/admin/auth/sysAuth',query:{active:'auth'}}" >권한그룹관리</router-link></a>
                     </li>
                     <li>
                         <a class="sysAuthProgram" href="sysAuthProgram">권한그룹별 프로그램관리</a>
@@ -23,13 +23,13 @@
                 </ul>
             </li>
             <li class="nav-item bor-bm">
-                <a class="nav-link ba-color-999 auth menuMainA" href="javascript:;">
+                <a class="nav-link ba-color-999 user menuMainA" href="javascript:;">
                     사용자 관리 <i class="down-icon"><font-awesome-icon  icon="angle-down" /></i>
                 </a>
                 <ul class="file-tree">
 
                     <li>
-                        <a class="sysDept" href="sysDept">부서관리</a>
+                        <a class="sysDept" href="javascript:;"><router-link :to="{path:'/admin/user/sysDept',query:{active:'user'}}" >부서관리</router-link></a>
                     </li>
                     <li>
                         <a class="sysAuthProgra" href="#">사용자관리</a>
@@ -40,7 +40,7 @@
                 </ul>
             </li>
             <li class="nav-item bor-bm">
-                <a class="nav-link ba-color-999 auth menuMainA" href="#">
+                <a class="nav-link ba-color-999 menuMainA" href="#">
                     마스터 관리 <i class="down-icon"><font-awesome-icon  icon="angle-down" /></i>
                 </a>
                 <ul class="file-tree">
@@ -75,7 +75,7 @@
                 </ul>
             </li>
             <li class="nav-item bor-bm">
-                <a class="nav-link ba-color-999 auth menuMainA" href="#">
+                <a class="nav-link ba-color-999 menuMainA" href="#">
                     공통 <i class="down-icon"><font-awesome-icon  icon="angle-down" /></i>
                 </a>
                 <ul class="file-tree">
@@ -98,9 +98,19 @@
 
 export default {
   name: 'SideMenu',
+  created() {
+       
+   
+  },
   mounted(){
+
+      const top = this.$route.query.active;
+      $("."+top).css("color","blue")
+      $("."+top).parent().children(".file-tree").slideDown(300)
+      $("."+top).addClass('menuMainA_down');
      $(".file-tree").filetree();
-    $(document).on("click",".menuMainA",function () {
+  
+     $(document).off('click').on("click",".menuMainA",function () {
         if (!$(this).hasClass("menuMainA_down")){
             $(".menuMainA").removeClass("menuMainA_down");
             $(".file-tree").slideUp(100);
@@ -174,5 +184,14 @@ ul, ol {
     display: block;
     padding: 10px 15px;
 }
-
+  a {
+    color: inherit ;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+.active{
+  color: blue;
+}
 </style>

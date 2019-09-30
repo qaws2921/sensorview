@@ -23,6 +23,13 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 import './assets/js/tree/file-explore.js'
 
+import 'jqGrid/js/jquery.jqGrid';
+import 'jqGrid/js/i18n/grid.locale-kr'
+import './assets/js/jquery-ui-1.11.4/jquery-ui.js'
+
+
+
+
 Vue.config.productionTip = false
 
 new Vue({

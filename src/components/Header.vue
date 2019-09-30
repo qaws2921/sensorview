@@ -105,5 +105,12 @@ button, input, optgroup, select, textarea {
     float: left;
     padding: 6px 0px;
 }
+  a {
+    color: inherit ;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
 
 </style>
